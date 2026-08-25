@@ -7,6 +7,8 @@
 	name = Kipling Liu
 [core]
 	autocrlf = true
+[credential]
+	helper = manager
 [column]
 	ui = auto
 [branch]
