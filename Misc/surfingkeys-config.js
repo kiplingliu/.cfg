@@ -132,6 +132,10 @@ const reverseRules = [
 ];
 
 function transformUrl(url, rules = forwardRules) {
+    if (!url) {
+        return url;
+    }
+
     let currentUrl = url;
     let transformed = true;
     let depth = 0;
