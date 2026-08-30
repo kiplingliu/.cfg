@@ -1,3 +1,37 @@
 {
-    "vim.useSystemClipboard": true
+    "chat.disableAIFeatures": true,
+    "editor.minimap.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "files.insertFinalNewline": true,
+    "terminal.integrated.scrollback": 10000,
+    "task.allowAutomaticTasks": "on",
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.markdownlint": "explicit"
+        }
+    },
+    "markdownlint.focusMode": 2,
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["g", "r"],
+            "commands": [
+                "editor.action.referenceSearch.trigger"
+            ]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        }
+    ],
+    "vim.handleKeys": {
+        "<C-k>": false
+    },
+    "editor.fontFamily": "'JetBrains Mono NL', Consolas, 'Courier New', monospace",
 }
