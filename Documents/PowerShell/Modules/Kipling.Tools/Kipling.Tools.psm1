@@ -20,7 +20,7 @@ function Invoke-Rclone {
         }
     }
 
-    & rclone.exe @rcloneArgs
+    rclone @rcloneArgs
 }
 
 function Add-PathEntry {
