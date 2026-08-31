@@ -1,3 +1,4 @@
 * text=auto
 Misc/wsl/** text eol=lf
+Misc/vscode-extensions* text eol=lf
 *.bash text eol=lf
