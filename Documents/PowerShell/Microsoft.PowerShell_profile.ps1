@@ -14,7 +14,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function Complete
 
 New-Alias -Name which -Value where.exe
 New-Alias -Name touch -Value New-Item
-function config { & git --git-dir=$HOME\.cfg\ --work-tree=$HOME @args }
+function config { git --git-dir=$HOME\.cfg\ --work-tree=$HOME @args }
 
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
