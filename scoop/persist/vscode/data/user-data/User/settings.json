@@ -1,37 +1,73 @@
 {
-    "chat.disableAIFeatures": true,
-    "editor.minimap.enabled": false,
-    "telemetry.telemetryLevel": "off",
-    "files.insertFinalNewline": true,
-    "terminal.integrated.scrollback": 10000,
-    "task.allowAutomaticTasks": "on",
     "[markdown]": {
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
-        "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
             "source.fixAll.markdownlint": "explicit"
-        }
+        },
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.formatOnSave": true
     },
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports.ruff": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true
+    },
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer",
+        "editor.formatOnSave": true
+    },
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "chat.disableAIFeatures": true,
+    "debug.allowBreakpointsEverywhere": true,
+    "editor.fontFamily": "'JetBrains Mono NL', Consolas, 'Courier New', monospace",
+    "editor.minimap.enabled": false,
+    "errorLens.enabledDiagnosticLevels": [
+        "error",
+        "warning"
+    ],
+    "errorLens.onSave": true,
+    "evenBetterToml.formatter.reorderKeys": true,
+    "files.insertFinalNewline": true,
     "markdownlint.focusMode": 2,
-    "vim.useSystemClipboard": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.showOnlyDirectDependenciesInAutoImport": true,
+    "rust-analyzer.check.command": "clippy",
+    "task.allowAutomaticTasks": "on",
+    "telemetry.telemetryLevel": "off",
+    "terminal.integrated.scrollback": 10000,
+    "vim.handleKeys": {
+        "<C-k>": false
+    },
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": ["g", "r"],
+            "before": [
+                "g",
+                "r"
+            ],
             "commands": [
                 "editor.action.referenceSearch.trigger"
             ]
         },
         {
-            "before": ["k"],
-            "after": ["g", "k"]
+            "after": [
+                "g",
+                "k"
+            ],
+            "before": [
+                "k"
+            ]
         },
         {
-            "before": ["j"],
-            "after": ["g", "j"]
+            "after": [
+                "g",
+                "j"
+            ],
+            "before": [
+                "j"
+            ]
         }
     ],
-    "vim.handleKeys": {
-        "<C-k>": false
-    },
-    "editor.fontFamily": "'JetBrains Mono NL', Consolas, 'Courier New', monospace",
+    "vim.useSystemClipboard": true
 }
