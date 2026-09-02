@@ -151,7 +151,7 @@ function Sync-Backup {
             $lastSyncTime = (Get-Item $lastSyncPath).LastWriteTimeUtc
             $currentTime = Get-Date -AsUTC
             if (($currentTime - $lastSyncTime).TotalDays -lt $maxDaysSinceLastSync) {
-                Write-Verbose "Not backing up; last sync was < $maxDaysSinceLastSync days ago ($lastSyncTime)."
+                Write-Verbose "Not backing up; last sync was < $maxDaysSinceLastSync days ago ($((Get-Item $lastSyncPath).LastWriteTime))."
                 return
             }
         }
