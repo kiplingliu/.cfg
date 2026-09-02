@@ -7,7 +7,6 @@ const DEBUG = false;
 // - Some instances are out of date
 // - Slow
 const REDLIB_URL = 'https://redlib.catsarch.com';
-const NITTER_URL = 'https://nitter.net';
 
 settings.blocklistPattern = /monkeytype\.com/;
 settings.enableAutoFocus = false; // Required for e.g. discord, which autofocuses the input even on Esc
@@ -55,16 +54,6 @@ api.addSearchAlias(
 const errors = [];
 const escapeRegex = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-const TWITTER_HOSTS = new Set([
-    'twitter.com',
-    'x.com',
-    'fxtwitter.com',
-    'fixupx.com',
-    'vxtwitter.com',
-    'fixvx.com'
-]);
-
-const parsedNitter = new URL(NITTER_URL);
 const parsedRedlib = new URL(REDLIB_URL);
 
 // Structured URL Transformation Rules
@@ -94,15 +83,7 @@ const forwardRules = [
             return parsed.href;
         }
     },
-    // 4. Twitter / X / FXTwitter -> Nitter
-    (parsed) => {
-        if (TWITTER_HOSTS.has(parsed.hostname)) {
-            parsed.protocol = parsedNitter.protocol;
-            parsed.host = parsedNitter.host;
-            return parsed.href;
-        }
-    },
-    // 5. Reddit -> Redlib
+    // 4. Reddit -> Redlib
     (parsed) => {
         if (parsed.hostname.endsWith('reddit.com') && parsed.hostname !== parsedRedlib.hostname) {
             parsed.protocol = parsedRedlib.protocol;
@@ -113,15 +94,7 @@ const forwardRules = [
 ];
 
 const reverseRules = [
-    // 1. Nitter -> Twitter
-    (parsed) => {
-        if (parsed.host === parsedNitter.host) {
-            parsed.protocol = 'https:';
-            parsed.host = 'twitter.com';
-            return parsed.href;
-        }
-    },
-    // 2. Redlib -> Reddit
+    // 1. Redlib -> Reddit
     (parsed) => {
         if (parsed.host === parsedRedlib.host) {
             parsed.protocol = 'https:';
