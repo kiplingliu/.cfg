@@ -1,5 +1,12 @@
 $pwshPath = (Get-Command pwsh.exe).Source
-$command  = "Sync-Backup -ShouldCheckLastSync -Verbose *>&1 | Out-File -FilePath '$HOME\sync-backup.log' -Append"
+$fullScript = @'
+& {
+    "[$(Get-Date -Format s)]"
+    Sync-Backup -ShouldCheckLastSync -Verbose
+} *>&1 | Out-File -FilePath "$HOME\sync-backup.log" -Append
+'@
+$bytes = [System.Text.Encoding]::Unicode.GetBytes($fullScript)
+$encodedCommand = [Convert]::ToBase64String($bytes)
 
 $service = New-Object -ComObject Schedule.Service
 $service.Connect()
@@ -19,7 +26,7 @@ $trigger.Delay = "PT30S"
 # Action: Execute pwsh (Type 0 = TASK_ACTION_EXEC)
 $action = $task.Actions.Create(0)
 $action.Path = $pwshPath
-$action.Arguments = "-ExecutionPolicy Bypass -WindowStyle Hidden -Command `"$command`""
+$action.Arguments = "-ExecutionPolicy Bypass -WindowStyle Hidden -EncodedCommand $encodedCommand"
 
 # Register: Flag 6 = TASK_CREATE_OR_UPDATE, LogonType 3 = TASK_LOGON_INTERACTIVE_TOKEN
 $rootFolder = $service.GetFolder("\")
