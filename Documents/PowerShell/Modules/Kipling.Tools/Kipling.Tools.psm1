@@ -163,7 +163,8 @@ function Sync-Backup {
     $miscConfigDir = "$HOME\Misc"
 
     Save-GitSnapshot $notesDir -BundlePath "$backupDir\Notes.bundle" -Verbose:($VerbosePreference -eq "Continue")
-    Invoke-Rclone sync -v $backupDir "${remote}:$([IO.Path]::GetFileName($backupDir))" -Verbose:($VerbosePreference -eq "Continue")
+    # Need quotes around -v so PowerShell doesn't expand to Verbose
+    Invoke-Rclone sync '-v' $backupDir "${remote}:$([IO.Path]::GetFileName($backupDir))" -Verbose:($VerbosePreference -eq "Continue")
     Export-VSCodeExtensions $miscConfigDir -Verbose:($VerbosePreference -eq "Continue")
 
     if ($PSCmdlet.ShouldProcess($lastSyncPath, "Update last sync timestamp")) {
