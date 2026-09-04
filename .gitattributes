@@ -1,4 +1,5 @@
 * text=auto
+*.bash text eol=lf
 Misc/wsl/** text eol=lf
 Misc/vscode-extensions* text eol=lf
-*.bash text eol=lf
+.config/opencode/opencode.jsonc text eol=lf
