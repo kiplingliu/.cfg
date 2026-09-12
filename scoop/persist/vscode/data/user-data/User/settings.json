@@ -22,11 +22,6 @@
     "debug.allowBreakpointsEverywhere": true,
     "editor.fontFamily": "'JetBrains Mono NL', Consolas, 'Courier New', monospace",
     "editor.minimap.enabled": false,
-    "errorLens.enabledDiagnosticLevels": [
-        "error",
-        "warning"
-    ],
-    "errorLens.onSave": true,
     "evenBetterToml.formatter.reorderKeys": true,
     "files.insertFinalNewline": true,
     "markdown.preview.scrollEditorWithPreview": false,
