@@ -1,4 +1,4 @@
-$pwshPath = (Get-Command pwsh.exe).Source
+$pwshPath = "$env:LOCALAPPDATA\Microsoft\WindowsApps\pwsh.exe"
 $fullScript = @'
 & {
     "[$(Get-Date -Format s)]"
