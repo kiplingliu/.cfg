@@ -1,20 +1,25 @@
 {
-  "timeStamp": 1789617770765,
+  "timeStamp": 1789661343850,
   "version": "1.75.0",
   "userSettings": {
-    "importedLists": []
+    "externalLists": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
+    "importedLists": [
+      "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt"
+    ]
   },
   "selectedFilterLists": [
     "user-filters",
     "ublock-filters",
     "ublock-badware",
     "ublock-privacy",
-    "ublock-unbreak",
     "ublock-quick-fixes",
+    "ublock-unbreak",
     "easylist",
     "easyprivacy",
+    "adguard-spyware-url",
     "urlhaus-1",
-    "plowe-0"
+    "plowe-0",
+    "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt"
   ],
   "hiddenSettings": {},
   "whitelist": [
@@ -24,5 +29,5 @@
   "dynamicFilteringString": "behind-the-scene * * noop\nbehind-the-scene * inline-script noop\nbehind-the-scene * 1p-script noop\nbehind-the-scene * 3p-script noop\nbehind-the-scene * 3p-frame noop\nbehind-the-scene * image noop\nbehind-the-scene * 3p noop",
   "urlFilteringString": "",
   "hostnameSwitchesString": "no-large-media: behind-the-scene false\nno-csp-reports: * true",
-  "userFilters": ""
+  "userFilters": "! Removes shorts grid from feed page\nwww.youtube.com##ytd-rich-section-renderer\n\n! Removes shorts grid from search page\nwww.youtube.com##grid-shelf-view-model\n\n! Removes irrelevant search results\nwww.youtube.com##ytd-shelf-renderer\n\n! Removes shorts button from hamburger menu\nwww.youtube.com##ytd-guide-entry-renderer:has(a[title=\"Shorts\"])\nwww.youtube.com##ytd-mini-guide-entry-renderer:has(a[title=\"Shorts\"])"
 }
