@@ -2,4 +2,5 @@
 *.bash text eol=lf
 Misc/wsl/** text eol=lf
 Misc/vscode-extensions* text eol=lf
+Misc/my-ublock-backup* text eol=lf
 .config/opencode/opencode.jsonc text eol=lf
