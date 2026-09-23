@@ -7,8 +7,13 @@
 	name = Kipling Liu
 [core]
 	autocrlf = true
+	pager = delta
 [credential]
 	helper = manager
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
 [column]
 	ui = auto
 [branch]
