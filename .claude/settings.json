@@ -1,5 +1,8 @@
 {
   "model": "opus",
   "theme": "dark",
-  "editorMode": "vim"
+  "editorMode": "vim",
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
+  }
 }
