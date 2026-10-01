@@ -24,8 +24,6 @@
     "editor.minimap.enabled": false,
     "evenBetterToml.formatter.reorderKeys": true,
     "files.insertFinalNewline": true,
-    "markdown.preview.scrollEditorWithPreview": false,
-    "markdown.preview.scrollPreviewWithEditor": false,
     "markdownlint.focusMode": 2,
     "python.analysis.autoImportCompletions": true,
     "python.analysis.diagnosticMode": "workspace",
