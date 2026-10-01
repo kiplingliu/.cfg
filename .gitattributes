@@ -5,3 +5,4 @@ Misc/vscode-extensions* text eol=lf
 Misc/my-ublock-backup* text eol=lf
 .config/opencode/opencode.jsonc text eol=lf
 .claude/settings.json text eol=lf
+.claude/skills/** text eol=lf
