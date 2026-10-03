@@ -1,3 +1,5 @@
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
 $PSROptions = @{
     EditMode = "Vi"
     ViModeIndicator = "Cursor"
