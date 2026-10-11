@@ -1,9 +1,33 @@
 {
-  "model": "opus",
-  "theme": "dark",
-  "editorMode": "vim",
   "cleanupPeriodDays": 3650,
   "env": {
     "DISABLE_AUTOUPDATER": "1"
-  }
+  },
+  "model": "opus",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"Send-ToastNotification 'Claude Code' 'Needs your input'\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"Send-ToastNotification 'Claude Code' 'Done'\""
+          }
+        ]
+      }
+    ]
+  },
+  "theme": "dark",
+  "editorMode": "vim"
 }
