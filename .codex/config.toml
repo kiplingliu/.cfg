@@ -1,0 +1,11 @@
+model_reasoning_effort = "high"
+
+[windows]
+sandbox = "elevated"
+
+[sandbox_workspace_write]
+network_access = true
+
+[tui]
+screen_reader_detection_done = true
+vim_mode_default = true
