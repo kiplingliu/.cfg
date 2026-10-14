@@ -343,6 +343,25 @@ mapkey(',d', 'Delete chat', () => {
     });
 }, { domain: /gemini\.google\.com/ });
 
+mapkey(',d', 'Delete chat', () => {
+    api.Hints.create('[data-sidebar-chatgpt-conversation-key]', async element => {
+        try {
+            const actionsMenuButton = await waitForElement(element, 'button[aria-label="Chat actions"]');
+            actionsMenuButton.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+
+            await waitForElement(document, '[role="menuitem"]');
+            const deleteButton = [...document.querySelectorAll('[role="menuitem"]')]
+                .find(el => el.textContent.trim() === 'Delete');
+            deleteButton.click();
+
+            const confirmDeleteButton = await waitForElement(document, '[role="dialog"] > div button:nth-child(2)');
+            confirmDeleteButton.click();
+        } catch (err) {
+            console.error('[SurfingKeys] ,d error:', err);
+        }
+    });
+}, { domain: /chatgpt\.com/ });
+
 map('j', 'Scroll down');
 map('k', 'Scroll up');
 map('s', 'Scroll down'); // Removes all bindings with leader key 's'
