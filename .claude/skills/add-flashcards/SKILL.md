@@ -1,19 +1,19 @@
 ---
 name: add-flashcards
-description: Append question/answer flashcards to a Markdown deck in hashcards Q/A format, either from an explicit question and answer or from a high-level description like "problems I struggled with" or "difficult concepts from this session". Supports short fact cards and long-form problem/solution cards.
+description: Propose question/answer flashcard candidates for review, then append the user's selected cards to a Markdown deck in hashcards Q/A format. Accepts explicit questions and answers or high-level descriptions like "problems I struggled with". Supports short fact cards and long-form problem/solution cards.
 argument-hint: "[file.md] [card, or a description of what to make cards for]"
 ---
 
 # Add hashcards Q/A flashcards
 
-Append cards to a Markdown deck using the
+Present candidate cards for review, then append the user's selections using the
 [hashcards](https://github.com/eudoxia0/hashcards) Q/A format.
 
 ## Inputs
 
 - **Target file**: the `.md` file to append to. If the user didn't name one,
-  use the deck already being discussed; otherwise ask. Create the file if it
-  doesn't exist.
+  use the deck already being discussed; otherwise ask. If the file doesn't
+  exist, create it only when appending approved cards.
 - **What to make cards for**, one of:
   - **An explicit card**: a question and answer given directly. Keep the
     user's wording; fix only obvious typos.
@@ -37,8 +37,25 @@ Append cards to a Markdown deck using the
      Use it for problems the user had to solve, where the method matters.
 4. Before writing, read the target deck and skip anything that is already
    covered.
-5. Write the cards, then list them for the user (one line each) so they can
-   ask for changes.
+5. Draft candidate cards and present them for review using the workflow below.
+
+## Candidate review before appending
+
+Apply this workflow to both explicit cards and high-level descriptions.
+
+1. Read the target deck if it exists and omit candidates already covered.
+2. Present a numbered list of candidates before changing the deck. Include
+   each card's type, proposed question, and answer; for a long problem card,
+   include the problem statement and a concise solution outline.
+3. Ask which candidates to add, allowing all, a numbered subset, edits, or none.
+   Wait for the user's response before creating or modifying the deck. An
+   initial request to add cards does not replace this candidate review.
+4. Append only the selected cards, incorporating any requested edits. Do not
+   ask again when the user has already reviewed and approved those specific
+   candidates in the conversation. If none are selected, leave the deck alone.
+
+If there are no new candidates after checking the deck, report that and do not
+modify it.
 
 ## Card format
 
@@ -95,6 +112,8 @@ Guidelines for long-form cards:
   `Q:`, `A:` or `C:` except for the card's own markers.
 
 ## Appending
+
+Append only after the candidate review and selection above.
 
 1. Read the end of the target file (if it exists).
 2. Make sure the existing content ends with a newline, then add one blank line
