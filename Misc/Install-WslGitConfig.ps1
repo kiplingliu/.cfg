@@ -5,7 +5,7 @@ $wslGitConfigContent = @"
 `tautocrlf = input
 [credential]
 `thelper =
-`thelper = "$(ConvertTo-WslPath $HOME\scoop\apps\git\current\mingw64\bin\git-credential-manager.exe)"
+`thelper = "$(ConvertTo-WslPath $HOME\scoop\apps\git\current\ucrt64\bin\git-credential-manager.exe)"
 
 "@
 
