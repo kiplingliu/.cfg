@@ -1,5 +1,6 @@
 charliermarsh.ruff
 davidanson.vscode-markdownlint
+dnut.rewrap-revived
 llvm-vs-code-extensions.vscode-clangd
 ms-python.debugpy
 ms-python.python
