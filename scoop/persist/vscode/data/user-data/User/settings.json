@@ -33,7 +33,8 @@
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.scrollback": 10000,
     "vim.handleKeys": {
-        "<C-k>": false
+        "<C-k>": false,
+        "<C-p>": false
     },
     "vim.normalModeKeyBindingsNonRecursive": [
         {
