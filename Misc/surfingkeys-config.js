@@ -354,7 +354,9 @@ mapkey(',d', 'Delete chat', () => {
                 .find(el => el.textContent.trim() === 'Delete');
             deleteButton.click();
 
-            const confirmDeleteButton = await waitForElement(document, '[role="dialog"] > div button:nth-child(2)');
+            await waitForElement(document, '[type="submit"]');
+            const confirmDeleteButton = [...document.querySelectorAll('[type="submit"]')]
+                .find(el => el.textContent.trim() === 'Delete chat');
             confirmDeleteButton.click();
         } catch (err) {
             console.error('[SurfingKeys] ,d error:', err);
