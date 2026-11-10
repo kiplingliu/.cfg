@@ -1,3 +1,4 @@
+anthropic.claude-code
 charliermarsh.ruff
 davidanson.vscode-markdownlint
 dnut.rewrap-revived
