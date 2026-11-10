@@ -19,6 +19,7 @@
     },
     "C_Cpp.intelliSenseEngine": "disabled",
     "chat.disableAIFeatures": true,
+    "claudeCode.preferredLocation": "panel",
     "debug.allowBreakpointsEverywhere": true,
     "editor.fontFamily": "'JetBrains Mono NL', Consolas, 'Courier New', monospace",
     "editor.minimap.enabled": false,
