@@ -6,7 +6,7 @@ const DEBUG = false;
 // - On a VPN, some instances using https://github.com/TecharoHQ/anubis give "Invalid response"
 // - Some instances are out of date
 // - Slow
-const REDLIB_URL = 'https://redlib.catsarch.com';
+const REDLIB_URL = 'http://localhost:8081';
 
 settings.blocklistPattern = /monkeytype\.com/;
 settings.enableAutoFocus = false; // Required for e.g. discord, which autofocuses the input even on Esc
@@ -272,9 +272,14 @@ mapkey('ci', '#1Open a link with transformation in incognito window', () => {
 mapkey('P', '#7Open a link from clipboard with transformation in active new tab', () => {
     api.Clipboard.read(response => {
         try {
-            api.tabOpenLink(transformUrl(response.data));
+            const clipText = response.data.trim();
+            if (/^[a-z][\w+.-]*:\/\//i.test(clipText) || (clipText.includes('.') && !/\s/.test(clipText))) {
+                api.tabOpenLink(transformUrl(clipText));
+            } else {
+                api.tabOpenLink("https://duckduckgo.com/?q=" + encodeURIComponent(clipText));
+            }
         } catch {
-            api.Front.showBanner(`Invalid URL: "${response.data}"`);
+            api.Front.showBanner(`Invalid URL: "${JSON.stringify(response.data)}"`);
         }
     });
 });
