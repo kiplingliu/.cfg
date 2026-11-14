@@ -352,7 +352,7 @@ mapkey(',d', 'Delete chat', () => {
     api.Hints.create('[data-sidebar-chatgpt-conversation-key]', async element => {
         try {
             const actionsMenuButton = await waitForElement(element, 'button[aria-label="Chat actions"]');
-            actionsMenuButton.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+            actionsMenuButton.click();
 
             await waitForElement(document, '[role="menuitem"]');
             const deleteButton = [...document.querySelectorAll('[role="menuitem"]')]
