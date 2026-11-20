@@ -355,6 +355,7 @@ mapkey(',d', 'Delete chat', () => {
             actionsMenuButton.click();
 
             await waitForElement(document, '[role="menuitem"]');
+            await new Promise(r => setTimeout(r, 150)); // let the menu finish rendering
             const deleteButton = [...document.querySelectorAll('[role="menuitem"]')]
                 .find(el => el.textContent.trim() === 'Delete');
             deleteButton.click();
