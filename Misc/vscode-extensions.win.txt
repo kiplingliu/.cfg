@@ -19,5 +19,6 @@ ms-vscode.remote-explorer
 ms-vscode.remote-server
 rust-lang.rust-analyzer
 tamasfe.even-better-toml
+thenuprojectcontributors.vscode-nushell-lang
 vscodevim.vim
 yzhang.markdown-all-in-one

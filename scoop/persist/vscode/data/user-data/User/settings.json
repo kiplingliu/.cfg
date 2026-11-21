@@ -32,6 +32,7 @@
     "rust-analyzer.check.command": "clippy",
     "task.allowAutomaticTasks": "on",
     "telemetry.telemetryLevel": "off",
+    "terminal.integrated.defaultProfile.windows": "Nushell",
     "terminal.integrated.scrollback": 10000,
     "vim.handleKeys": {
         "<C-k>": false,
