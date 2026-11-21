@@ -29,6 +29,10 @@ $env.config.keybindings ++= [
 
 alias ll = ls -l
 
+def tl [...args: string] {
+  ttdl l ...$args | detect columns --guess | drop 1 | update Due { detect type }
+}
+
 # Doesn't work b/c nu sends literal unevaluated strings to the completer
 # alias cfg = git $"--git-dir=($nu.home-dir | path join .cfg)" $"--work-tree=($nu.home-dir)"
 
