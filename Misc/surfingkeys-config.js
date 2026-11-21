@@ -164,6 +164,7 @@ const [map, mapkey, getKeysStatus, descToTmpKeyDict] = (function () {
         'R': 'Go one tab right',
         'S': 'Go back in history',
         'f': 'Open a link',
+        'gg': 'Scroll to the top of the page',
         'go': 'Open a URL in current tab',
         'j': 'Scroll down',
         'k': 'Scroll up',
@@ -267,6 +268,28 @@ mapkey('ci', '#1Open a link with transformation in incognito window', () => {
             api.RUNTIME('openIncognito', { url: e.href || undefined });
         });
     });
+});
+
+// TODO: integrate with current scroll target
+mapkey('gg', '#2Scroll to top (reveal headers)', function () {
+    function isScrollable(el) {
+        if (!el || el === document.documentElement || el === document.body) return false;
+        var oy = getComputedStyle(el).overflowY;
+        return (oy === 'auto' || oy === 'scroll' || oy === 'overlay') &&
+            el.scrollHeight > el.clientHeight && el.scrollTop > 0;
+    }
+
+    // 1) Walk up from the element in the middle of the screen
+    var el = document.elementFromPoint(innerWidth / 2, innerHeight / 2);
+    while (el && !isScrollable(el)) el = el.parentElement;
+
+    // 2) Otherwise use the main page if it's scrolled
+    if (!el && document.scrollingElement.scrollTop > 0) el = document.scrollingElement;
+
+    if (!el) return;
+
+    el.scrollTo({ top: Math.min(el.scrollTop, 300) });
+    el.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 mapkey('P', '#7Open a link from clipboard with transformation in active new tab', () => {
