@@ -28,6 +28,7 @@ $env.config.keybindings ++= [
 ]
 
 alias ll = ls -l
+alias wta = powershell -NoProfile -Command "Start-Process wt -Verb RunAs"
 
 def tl [...args: string] {
   ttdl l ...$args | detect columns --guess | drop 1 | update Due { detect type }
