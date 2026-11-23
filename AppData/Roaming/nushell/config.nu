@@ -1,4 +1,5 @@
 $env.config.show_banner = "short"
+$env.config.rm.always_trash = true
 $env.config.edit_mode = "vi"
 
 $env.config.history.file_format = "sqlite"
